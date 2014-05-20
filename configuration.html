@@ -65,8 +65,7 @@
         $("#b-submit").click(function() {
           console.log("Submit");
 
-          window.location.href = "pebblejs://close#" + encodeURIComponent(JSON.stringify(configuration));
-         /* ls_pto = JSON.stringify(saveOptions());
+          ls_pto = JSON.stringify(saveOptions());
           if (typeof window.localStorage !== "undefined") {
             window.localStorage.pebble_timely_options = ls_pto;
           }
@@ -74,7 +73,7 @@
           console.log("Warping to: " + location);
           console.log(location);
           document.location = location;
-*/
+
         });
 
       });
