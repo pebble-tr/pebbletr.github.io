@@ -65,7 +65,8 @@
         $("#b-submit").click(function() {
           console.log("Submit");
 
-          ls_pto = JSON.stringify(saveOptions());
+          window.location.href = "pebblejs://close#" + encodeURIComponent(JSON.stringify(configuration));
+         /* ls_pto = JSON.stringify(saveOptions());
           if (typeof window.localStorage !== "undefined") {
             window.localStorage.pebble_timely_options = ls_pto;
           }
