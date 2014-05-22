@@ -40,9 +40,8 @@
     <script>
       function saveOptions() {
         var options = {
-          'style_inv':     Number( $("input[name=key0]:checked").val() ),
-          'style_day_inv': Number( $("input[name=key1]:checked").val() ),
-        }
+          'style_inv':     Number( $("input[name=key0]:checked").val() )
+          }
         return options;
       }
 
@@ -57,10 +56,7 @@
           $("input[name=key1]").checkboxradio('refresh');
         }
        }
-        $("#b-cancel").click(function() {
-          console.log("Cancel");
-          document.location = "pebblejs://close";
-        });
+       
         
          $().ready(function() {
         $("#b-cancel").click(function() {
@@ -78,8 +74,13 @@
         });
 
       });
+      
+/*       $("#b-cancel").click(function() {
+          console.log("Cancel");
+          document.location = "pebblejs://close";
+        });
 
-/*        $("#b-submit").click(function() {
+        $("#b-submit").click(function() {
           console.log("Submit");
 
           ls_pto = JSON.stringify(saveOptions());
