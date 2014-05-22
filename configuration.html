@@ -61,8 +61,25 @@
           console.log("Cancel");
           document.location = "pebblejs://close";
         });
+        
+         $().ready(function() {
+        $("#b-cancel").click(function() {
+          console.log("Cancel");
+          document.location = "pebblejs://close";
+        });
 
         $("#b-submit").click(function() {
+          console.log("Submit");
+
+          var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
+          console.log("Warping to: " + location);
+          console.log(location);
+          document.location = location;
+        });
+
+      });
+
+/*        $("#b-submit").click(function() {
           console.log("Submit");
 
           ls_pto = JSON.stringify(saveOptions());
@@ -77,6 +94,7 @@
         });
 
       });
+*/
     </script>
   </body>
 </html>
