@@ -52,13 +52,10 @@
           // the Pebble webview dies on the next line...
           $("input[name=key0][id=key0-"+ls_pto["style_inv"]+"]").prop('checked',true);
           $("input[name=key0]").checkboxradio('refresh');
-          $("input[name=key1][id=key1-"+ls_pto["style_day_inv"]+"]").prop('checked',true);
-          $("input[name=key1]").checkboxradio('refresh');
-        }
+         }
        }
        
         
-         $().ready(function() {
         $("#b-cancel").click(function() {
           console.log("Cancel");
           document.location = "pebblejs://close";
