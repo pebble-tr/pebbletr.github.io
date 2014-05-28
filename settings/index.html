@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html manifest="manifest.appcache">
 <head>
-	<title>Aviator v2.0 Config</title>
+	<title>PebbleTextWatch-tr Configuration</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -11,16 +11,16 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="container">
+    <div class="container">
 	<h2>Configuration</h2>
-	<form id="configure-form" class="form-configure well" action="#" method="POST">
-	<h4>Invert</h4>
+      	<form id="configure-form" class="form-configure well" action="#" method="POST">
+        <h4>Invert</h4>
         <p><small>Invert the colour scheme.</small></p>
-		<div class="btn-group" data-toggle="buttons">
-			<label class="btn btn-primary">
-				<input type="radio" name="invert" id="invert1" value="1"> Yes
-	          	</label>
-        	  	<label class="btn btn-primary">
+        	<div class="btn-group" data-toggle="buttons">
+          		<label class="btn btn-primary">
+            			<input type="radio" name="invert" id="invert1" value="1"> Yes
+          		</label>
+          		<label class="btn btn-primary">
             			<input type="radio" name="invert" id="invert2" value="0"> No
           		</label>
         	</div>
@@ -29,38 +29,49 @@
           		<input class="btn btn-lg btn-primary btn-block" id="save" type="submit" value="Save"/>
         	</div>
       </form>
-      </div>
-      <script>
-		var mInvert;
+    </div>
+    <script>
+      var mInvert;
       
-		$().ready(function () {
-			mInvert = parseInt(localStorage.getItem("invert"));
-			if(isNaN(mInvert)) {
-          			mInvert = 0;
-        		}
+      $().ready(function () {
+      
+        mInvert = parseInt(localStorage.getItem("invert"));
         
-        		if(mInvert) {
-          			$('#invert1').prop('checked', true);
-          			$('#invert1').parent().addClass('active');
-	        	  	$('#invert2').prop('checked', false);
-        	  		$('#invert2').parent().removeClass('active');
-        		} else {
-          			$('#invert1').prop('checked', false);
-		          	$('#invert1').parent().removeClass('active');
-         			$('#invert2').prop('checked', true);
-         		        $('#invert2').parent().addClass('active'); 
-       			}	
-        	$("#configure-form").submit(function(e) {  
-			mInvert = $('#invert1').prop('checked') ? 1 : 0;
-        		localStorage.setItem("invert", mInvert); 
-        		
-			var j = {
-          			invert : parseInt(mInvert),
-       			 };
+	if(isNaN(mInvert)) {
+          mInvert = 0;
+        }
         
-      			window.location.href = "pebblejs://close#" + JSON.stringify(j);
-        		e.preventDefault();
-      		});
-     </script>
+        if(mInvert) {
+          $('#invert1').prop('checked', true);
+          $('#invert1').parent().addClass('active');
+          
+          $('#invert2').prop('checked', false);
+          $('#invert2').parent().removeClass('active');
+        } 
+        else {
+          $('#invert1').prop('checked', false);
+          $('#invert1').parent().removeClass('active');
+          
+          $('#invert2').prop('checked', true);
+          $('#invert2').parent().addClass('active'); 
+        }
+        
+      });
+
+      $("#configure-form").submit(function(e) {  
+
+        mInvert = $('#invert1').prop('checked') ? 1 : 0;
+
+        localStorage.setItem("invert", mInvert); 
+        
+        var j = {
+          invert : parseInt(mInvert),
+        };
+        
+        window.location.href = "pebblejs://close#" + JSON.stringify(j);
+
+        e.preventDefault();
+      });
+  </script>
 </body>
 </html>
