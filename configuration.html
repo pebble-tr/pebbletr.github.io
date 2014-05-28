@@ -46,14 +46,9 @@
       }
 
       $().ready(function() {
-       if (typeof window.localStorage !== "undefined") {
-        if (window.localStorage.pebble_options) {
-          ls_po = JSON.parse(window.localStorage.pebble_options);
-          // the Pebble webview dies on the next line...
-          $("input[name=key0][id=key0-"+ls_po["style_inv"]+"]").prop('checked',true);
-          $("input[name=key0]").checkboxradio('refresh');
-         }
-       }
+       
+        $("input[name=key0][id=key0-"+ls_po["style_inv"]+"]").prop('checked',true);
+        $("input[name=key0]").checkboxradio('refresh');
        
         $("#b-cancel").click(function() {
           console.log("Cancel");
@@ -62,8 +57,9 @@
 
         $("#b-submit").click(function() {
           console.log("Submit");
-
+	  
           var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
+          localStorage.setItem("invert", style_inv);
           console.log("Warping to: " + location);
           console.log(location);
           document.location = location;
